@@ -1,0 +1,2 @@
+C:\Users\Mcado\source\repos\Project_Euler_Path_Triplet\Debug\Project_Euler_Path_Triplet.exe
+C:\Users\Mcado\source\repos\Project_Euler_Path_Triplet\Debug\Project_Euler_Path_Triplet.pdb
