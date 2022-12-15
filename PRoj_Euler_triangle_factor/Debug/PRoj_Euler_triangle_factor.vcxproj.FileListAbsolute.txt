@@ -1,0 +1,2 @@
+C:\Users\Mcado\source\repos\PRoj_Euler_triangle_factor\Debug\PRoj_Euler_triangle_factor.exe
+C:\Users\Mcado\source\repos\PRoj_Euler_triangle_factor\Debug\PRoj_Euler_triangle_factor.pdb

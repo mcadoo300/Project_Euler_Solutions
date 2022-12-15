@@ -1,0 +1,4 @@
+﻿  Source.cpp
+C:\Users\Mcado\source\repos\PRoj_Euler_triangle_factor\Source.cpp(30,13): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\Mcado\source\repos\PRoj_Euler_triangle_factor\Source.cpp(54,28): warning C4244: '=': conversion from 'double' to 'long', possible loss of data
+  PRoj_Euler_triangle_factor.vcxproj -> C:\Users\Mcado\source\repos\PRoj_Euler_triangle_factor\Debug\PRoj_Euler_triangle_factor.exe
