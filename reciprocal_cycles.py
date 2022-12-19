@@ -24,8 +24,8 @@ while not flag:
         maxRep = get_sequence(n)
         #for each n there are n-1 possible remainders(if the remainder is 0 its not repeating)
         #so when the sequence is larger than the next element in the loop we have our max repeating decimal
-        if maxRep >= (n-1):
-            flag = True
+    if maxRep >= (n-1):
+        flag = True
 
     n -= 1
 
