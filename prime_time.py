@@ -17,39 +17,6 @@ def is_prime(x):
     return True
 
 
-# get list of primes which factor x
-def get_primes(x):
-    if x % 2 == 0:
-        x /= 2
-        prime_list = [1, 2]
-        while x % 2 == 0:
-            x /= 2
-    else:
-        prime_list = [1]
-
-    factor = 3
-    max_factor = math.sqrt(x)
-    while x > 1 and factor <= max_factor:
-        if x % factor == 0:
-            x /= factor
-            prime_list.append(factor)
-            while x % factor == 0:
-                x /= factor
-            max_factor = math.sqrt(x)
-        factor += 2
-    if x == 1:
-        return prime_list
-    else:
-        prime_list.append(x)
-        return prime_list
-
-
-# get largest prime factor
-# calls get_primes then returns most recently added item(largest prime)
-def largest_prime_factor(x):
-    var = get_primes(x)
-    return var.pop(len(var)-1)
-
 
 # get prime factorization as a 2-d array
 # that is : x = p**a * q**b *...* r**n (where p,q,r... are prime and a,b,n,... are exponents
@@ -87,6 +54,18 @@ def prime_factorization(x):
         return prime_list
 
 
+def list_prime_factors(x):
+    list1 = prime_factorization(x)
+    return list1[0]
+
+
+# get largest prime factor
+# calls get_primes then returns most recently added item(largest prime)
+def largest_prime_factor(x):
+    var = list_prime_factors(x)
+    return var.pop(len(var)-1)
+
+
 # return number of divisors of some number x
 def get_num_divisors(x):
     factors = prime_factorization(x)
@@ -103,10 +82,11 @@ def list_primes_under(x):
     prime_list[1] = False
 
     for i in range(2, int(math.sqrt(x)+1)):
-        index = i*2
-        while index < x:
-            prime_list[index] = False
-            index += i
+        if prime_list[i]:
+            index = i*2
+            while index < x:
+                prime_list[index] = False
+                index += i
 
     prime = []
 
