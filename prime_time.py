@@ -2,22 +2,6 @@
 import math
 
 
-# is x prime
-def is_prime(x):
-    if x % 2 == 0:
-        if x == 2:
-            return True
-        else:
-            return False
-    else:
-        for y in range(3, x // 2):
-            if x % y == 0:
-                return False
-
-    return True
-
-
-
 # get prime factorization as a 2-d array
 # that is : x = p**a * q**b *...* r**n (where p,q,r... are prime and a,b,n,... are exponents
 def prime_factorization(x):
@@ -63,7 +47,7 @@ def list_prime_factors(x):
 # calls get_primes then returns most recently added item(largest prime)
 def largest_prime_factor(x):
     var = list_prime_factors(x)
-    return var.pop(len(var)-1)
+    return var.pop(len(var) - 1)
 
 
 # return number of divisors of some number x
@@ -71,19 +55,20 @@ def get_num_divisors(x):
     factors = prime_factorization(x)
     num_divisors = 1
     for a in factors[1]:
-        num_divisors *= (a+1)
+        num_divisors *= (a + 1)
     return num_divisors
 
 
 # list primes under x
 def list_primes_under(x):
-    prime_list = [True]*x
+    prime_list = [True] * x
     prime_list[0] = False
-    prime_list[1] = False
+    if x != 1:
+        prime_list[1] = False
 
-    for i in range(2, int(math.sqrt(x)+1)):
+    for i in range(2, int(math.sqrt(x) + 1)):
         if prime_list[i]:
-            index = i*2
+            index = i * 2
             while index < x:
                 prime_list[index] = False
                 index += i
@@ -94,3 +79,38 @@ def list_primes_under(x):
         if prime_list[i]:
             prime.append(i)
     return prime
+
+
+# works for n <= 100000+-
+def list_first_n_primes(n):
+    var = list_primes_under(2000000)
+    primes = []
+    for i in range(n):
+        primes.append(var[i])
+    return primes
+
+
+# is x prime
+def is_prime(x):
+    x = abs(x)
+    if x == 1:
+        return False
+    if x == 2:
+        return True
+    if x == 3:
+        return True
+    upper_bound = math.floor(math.sqrt(x)) + 1
+    sieve = list_primes_under(upper_bound)
+    for y in sieve:
+        if x % y == 0:
+            return False
+    return True
+
+
+def get_divisors(x):
+    divisors = []
+    for n in range(1,math.ceil(x/2)):
+        if x % n == 0:
+            if divisors.count(n) == 0:
+                divisors.append(n)
+    return divisors
